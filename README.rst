@@ -1,3 +1,7 @@
+.. warning::
+
+   This project is not maintained anymore. For a maintained fork try instead Experta_.
+
 PyKnow: Expert Systems for Python
 =================================
 
@@ -60,4 +64,5 @@ You can find some more examples on GitHub_.
 
 .. _CLIPS: http://clipsrules.sourceforge.net
 .. _GitHub: https://github.com/buguroo/pyknow/tree/develop/docs
+.. _Experta: https://github.com/nilp0inter/experta
 
