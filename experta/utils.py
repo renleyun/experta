@@ -1,7 +1,6 @@
 from functools import singledispatch
 
-from immutabledict import immutabledict as frozendict
-
+# 使用普通字典替代 frozendict
 from .fieldconstraint import P
 
 try:
@@ -27,9 +26,9 @@ def freeze(obj):
 
 
 @freeze.register(dict)
-@freeze.register(frozendict)
 def freeze_dict(obj):
-    return frozendict((k, freeze(v)) for k, v in obj.items())
+    # 直接使用普通字典而非 frozendict
+    return dict((k, freeze(v)) for k, v in obj.items())
 
 
 @freeze.register(list)
@@ -50,8 +49,7 @@ def unfreeze(obj):
 
 
 @unfreeze.register(dict)
-@unfreeze.register(frozendict)
-def unfreeze_frozendict(obj):
+def unfreeze_dict(obj):
     return {k: unfreeze(v) for k, v in obj.items()}
 
 
